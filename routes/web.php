@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\User;
 
 
 Route::get('/', function () {
@@ -25,9 +26,9 @@ Route::get('/subjects', function() {
 });
 
 Route::any('/search',function(){
-    $q = Input::get ( 'q' );
+    $q = Request::get ( 'q' );
     $user = User::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
     if(count($user) > 0)
-        return view('welcome')->withDetails($user)->withQuery ( $q );
-    else return view ('welcome')->withMessage('No Details found. Try to search again !');
+        return view('subjects')->withDetails($user)->withQuery ( $q );
+    else return view ('subjects')->withMessage('No Details found. Try to search again !');
 });

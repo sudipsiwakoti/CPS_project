@@ -3,7 +3,7 @@
 @section('content')
 
 <form action="/search" method="POST" role="search">
-    {{ csrf_field() }}
+    @csrf
     <div class="input-group">
         <input type="text" class="form-control" name="q"
             placeholder="Search subjects"> <span class="input-group-btn">
@@ -28,8 +28,8 @@
         <tbody>
             @foreach($details as $user)
             <tr>
-                <td>{{$user->subjectName}}</td>
-                <td>{{$user->subjectID}}</td>
+                <td>{{$user->name}}</td>
+                <td>{{$user->email}}</td>
             </tr>
             @endforeach
         </tbody>
