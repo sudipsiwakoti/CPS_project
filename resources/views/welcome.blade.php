@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Course Planning System
                 </div>
 
                 <div class="links">
