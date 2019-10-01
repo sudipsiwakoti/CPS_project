@@ -25,7 +25,7 @@ Route::get('/subjects', function() {
 	return view('subjects');
 });
 
-Route::any('/search',function(){
+Route::any('/searchSubjects',function(){
     $q = Request::get ( 'q' );
     $user = User::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
     if(count($user) > 0)
