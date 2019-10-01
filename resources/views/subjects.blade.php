@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form action="/search" method="POST" role="search">
+<form action="/searchSubjects" method="POST" role="search">
     @csrf
     <div class="input-group">
         <input type="text" class="form-control" name="q"
