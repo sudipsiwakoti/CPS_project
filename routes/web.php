@@ -32,3 +32,15 @@ Route::any('/searchSubjects',function(){
         return view('subjects')->withDetails($user)->withQuery ( $q );
     else return view ('subjects')->withMessage('No Details found. Try to search again !');
 });
+
+Route::get('/courses', function() {
+	return view('courses');
+});
+
+Route::any('/searchCourses',function(){
+    $q = Request::get ( 'q' );
+    $user = User::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
+    if(count($user) > 0)
+        return view('subjects')->withDetails($user)->withQuery ( $q );
+    else return view ('subjects')->withMessage('No Details found. Try to search again !');
+});
