@@ -11,6 +11,7 @@
 |
 */
 use App\User;
+use App\Plan;
 
 
 Route::get('/', function () {
@@ -43,4 +44,9 @@ Route::any('/searchCourses',function(){
     if(count($user) > 0)
         return view('subjects')->withDetails($user)->withQuery ( $q );
     else return view ('subjects')->withMessage('No Details found. Try to search again !');
+});
+
+Route::get('/planning', function() {
+	$plan = Plan::where('userID','=',Auth::user()->id);
+	return view('planning')->withDetails($plan);
 });

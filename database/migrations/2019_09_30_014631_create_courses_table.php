@@ -23,6 +23,13 @@ class CreateCoursesTable extends Migration
             $table->integer('creditPts');
             $table->timestamps();
         });
+
+        DB::table('users')->insert(
+            array(
+                'courseName' => 'Bachelor of Engineering (Data Engineering)',
+                'courseLength' => 'Five years',
+                'creditPts' => 192)
+        );
     }
 
     /**
