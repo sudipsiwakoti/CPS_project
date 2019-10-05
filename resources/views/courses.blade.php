@@ -2,7 +2,8 @@
 
 @section('content')
 
-<form action="/searchCourses" method="POST" role="search">
+<div class="container">
+    <form action="/searchCourses" method="POST" role="search">
     @csrf
     <div class="input-group">
         <input type="text" class="form-control" name="q"
@@ -12,13 +13,13 @@
             </button>
         </span>
     </div>
-</form>
+    </form>
 
-<div class="container">
     @if(isset($details))
+        <p> </p>
         <p> The search results for your query <b> {{ $query }} </b> are :</p>
-    <table class="table table-striped">
-        <thead>
+    <table class="table">
+        <thead class="thead-dark">
             <tr>
                 <th>Course ID</th>
                 <th>Course Name</th>
@@ -26,7 +27,7 @@
         </thead>
         <tbody>
             @foreach($details as $user)
-            <tr>
+            <tr class="table-tr" onclick="window.location='{{$user->courseID}}';">
                 <td>{{$user->courseID}}</td>
                 <td>{{$user->courseName}}</td>
             </tr>
