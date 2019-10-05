@@ -12,7 +12,7 @@
 */
 use App\User;
 use App\Subjects;
-
+use App\Courses;
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,8 +40,8 @@ Route::get('/courses', function() {
 
 Route::any('/searchCourses',function(){
     $q = Request::get ( 'q' );
-    $user = User::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
+    $user = Courses::where('courseID','LIKE','%'.$q.'%')->orWhere('courseName','LIKE','%'.$q.'%')->get();
     if(count($user) > 0)
-        return view('subjects')->withDetails($user)->withQuery ( $q );
-    else return view ('subjects')->withMessage('No Details found. Try to search again !');
+        return view('courses')->withDetails($user)->withQuery ( $q );
+    else return view ('courses')->withMessage('No Details found. Try to search again !');
 });
