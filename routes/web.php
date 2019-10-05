@@ -11,6 +11,7 @@
 |
 */
 use App\User;
+use App\Subjects;
 
 
 Route::get('/', function () {
@@ -27,7 +28,7 @@ Route::get('/subjects', function() {
 
 Route::any('/searchSubjects',function(){
     $q = Request::get ( 'q' );
-    $user = User::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
+    $user = Subjects::where('subjectID','LIKE','%'.$q.'%')->orWhere('subjectName','LIKE','%'.$q.'%')->get();
     if(count($user) > 0)
         return view('subjects')->withDetails($user)->withQuery ( $q );
     else return view ('subjects')->withMessage('No Details found. Try to search again !');

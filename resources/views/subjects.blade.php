@@ -21,15 +21,15 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Email</th>
+                <th>Subject ID</th>
+                <th>Subject Name</th>
             </tr>
         </thead>
         <tbody>
             @foreach($details as $user)
             <tr>
-                <td>{{$user->name}}</td>
-                <td>{{$user->email}}</td>
+                <td>{{$user->subjectID}}</td>
+                <td>{{$user->subjectName}}</td>
             </tr>
             @endforeach
         </tbody>
