@@ -2,7 +2,8 @@
 
 @section('content')
 
-<form action="/searchSubjects" method="POST" role="search">
+<div class="container">
+	<form action="/searchSubjects" method="POST" role="search">
     @csrf
     <div class="input-group">
         <input type="text" class="form-control" name="q"
@@ -12,24 +13,23 @@
             </button>
         </span>
     </div>
-</form>
+	</form>
 
-<div class="container">
     @if(isset($details))
-        <p> The Search results for your query <b> {{ $query }} </b> are :</p>
-    <h2>Sample User details</h2>
-    <table class="table table-striped">
-        <thead>
+        <p> </p>
+        <p> The search results for your query <b> {{ $query }} </b> are :</p>
+    <table class="table">
+        <thead class="thead-dark">
             <tr>
-                <th>Name</th>
-                <th>Email</th>
+                <th>Subject ID</th>
+                <th>Subject Name</th>
             </tr>
         </thead>
         <tbody>
             @foreach($details as $user)
-            <tr>
-                <td>{{$user->name}}</td>
-                <td>{{$user->email}}</td>
+            <tr class="table-tr" onclick="window.location='{{$user->subjectID}}';">
+                <td>{{$user->subjectID}}</td>
+                <td>{{$user->subjectName}}</td>
             </tr>
             @endforeach
         </tbody>
