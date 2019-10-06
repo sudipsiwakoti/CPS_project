@@ -23,6 +23,7 @@ class CreateCoursesTable extends Migration
             $table->integer('creditPts')->nullable();
             $table->timestamps();
         });
+
     }
 
     /**
