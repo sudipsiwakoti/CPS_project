@@ -22,6 +22,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/completedSubjects', function() {
+    return view('completedSubjects');
+});
+
 /************************************ SEARCH ROUTES **********************************************************/
 Route::get('/subjects', function() {
 	return view('subjects');
@@ -46,6 +50,8 @@ Route::any('/searchCourses',function(){
         return view('courses')->withDetails($user)->withQuery ( $q );
     else return view ('courses')->withMessage('No Details found. Try to search again !');
 });
+
+
 /************************************ ROUTES FOR SUBJECT PAGES ************************************************/
 Route::get('/41091', function() {
 	return view('subjectviews.data_systems');

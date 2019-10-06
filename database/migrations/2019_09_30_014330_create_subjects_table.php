@@ -15,7 +15,7 @@ class CreateSubjectsTable extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->integer('subjectID');
-            $table->string('subjectName');  
+            $table->string('subjectName');
             $table->string('subjectDesc')->nullable();
             $table->integer('subjectPreReq')->nullable();
             $table->integer('subjectAntiReq')->nullable();
@@ -23,6 +23,7 @@ class CreateSubjectsTable extends Migration
             $table->boolean('active')->nullable();
             $table->boolean('school')->nullable();
             $table->boolean('coordinator')->nullable();
+            $table->integer('subjectCreditPoints');
             $table->timestamps();
         });
     }
