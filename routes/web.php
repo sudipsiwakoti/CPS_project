@@ -14,6 +14,7 @@ use App\User;
 use App\Plan;
 use App\Subjects;
 use App\Courses;
+use App\Courserequirement;
 
 Route::get('/', function () {
     return view('welcome');
@@ -48,13 +49,9 @@ Route::any('/searchCourses',function(){
     else return view ('courses')->withMessage('No Details found. Try to search again !');
 });
 
-Route::get('/planning', function() {
-	$plan = Plan::where('userID','=',Auth::user()->id)->get();
-	return view('planning')->withDetails($plan);
-});
 
-Route::get('/planning/{plan}', 'showPlan@PlanUpdateController');
-Route::post('/planning/{subject}/{semester}', 'addSubject@PlanUpdateController');
+Route::get('/planning', 'PlanUpdateController@showPlan');
+Route::post('/planning/{subject}/{semester}', 'PlanUpdateController@addSubject');
 
 /************************************ ROUTES FOR SUBJECT PAGES ************************************************/
 Route::get('/41091', function() {
