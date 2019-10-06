@@ -50,10 +50,10 @@ Route::any('/searchCourses',function(){
 });
 
 /************************************ ROUTE FOR SUBJECT PAGES ************************************************/
-Route::get('{subjectID}', 'DynamicViewController@showSubject');
+Route::get('subject/{subjectID}', 'DynamicViewController@showSubject');
 
 /************************************ ROUTE FOR COURSE PAGES ************************************************/
-Route::get('{subjectID}', 'DynamicViewController@showCourse');
+Route::get('course/{courseID}', 'DynamicViewController@showCourse');
 
 
 Route::get('/planning', 'PlanUpdateController@showPlan');
