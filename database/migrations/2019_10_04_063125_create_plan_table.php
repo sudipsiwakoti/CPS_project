@@ -15,11 +15,16 @@ class CreatePlanTable extends Migration
     {
         Schema::create('plan', function (Blueprint $table) {
             $table->bigIncrements('planID');
-            $table->integer('courseID');
+            $table->string('courseID');
             $table->bigInteger('userID');
-            $table->bigInteger('subjectEnrolmentID');
             $table->timestamps();
         });
+
+        DB::table('plan')->insert(
+            array(
+            'courseID' => 'C09067',
+            'userID' => 1));
+    
     }
 
     /**

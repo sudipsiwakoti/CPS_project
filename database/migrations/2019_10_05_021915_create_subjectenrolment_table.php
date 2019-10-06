@@ -16,7 +16,9 @@ class CreateSubjectenrolmentTable extends Migration
         Schema::create('subjectEnrolment', function (Blueprint $table) {
             $table->bigIncrements('subjectEnrolmentID');
             $table->bigInteger('userID');
+            $table->bigInteger('planID');
             $table->integer('subjectID');
+            $table->integer('semester');
             $table->integer('status');
             $table->integer('grade');
             $table->timestamps();

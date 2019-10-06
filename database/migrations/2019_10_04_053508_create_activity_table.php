@@ -15,6 +15,8 @@ class CreateActivityTable extends Migration
     {
         Schema::create('activity', function (Blueprint $table) {
             $table->bigIncrements('activityID');
+            $table->integer('subjectID');
+            $table->integer('semester');
 			$table->integer('activityType');
 			$table->datetime('startTime');
 			$table->float('durationHours');

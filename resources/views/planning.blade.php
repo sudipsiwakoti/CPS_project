@@ -13,8 +13,12 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    @foreach($details as $plan)
+                        {{$plan->userID}}<br>
+                        {{$plan->courseID}}
+                    @endforeach
+                    {{$course->courseID}}
 
-                    {{$details}}
                 </div>
             </div>
         </div>

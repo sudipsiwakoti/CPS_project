@@ -49,9 +49,12 @@ Route::any('/searchCourses',function(){
 });
 
 Route::get('/planning', function() {
-	$plan = Plan::where('userID','=',Auth::user()->id);
+	$plan = Plan::where('userID','=',Auth::user()->id)->get();
 	return view('planning')->withDetails($plan);
 });
+
+Route::get('/planning/{plan}', 'showPlan@PlanUpdateController');
+Route::post('/planning/{subject}/{semester}', 'addSubject@PlanUpdateController');
 
 /************************************ ROUTES FOR SUBJECT PAGES ************************************************/
 Route::get('/41091', function() {
@@ -102,3 +105,4 @@ Route::get('/C10278', function() {
 Route::get('/C10348', function() {
 	return view('courseviews.eco');
 });
+
