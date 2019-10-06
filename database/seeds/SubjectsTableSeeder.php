@@ -50,7 +50,7 @@ class SubjectsTableSeeder extends Seeder
             ['subjectID' => 48434, 'subjectName' => 'Embedded Software', 'semester' => 1901],
             ['subjectID' => 48033, 'subjectName' => 'Internet of Things', 'semester' => 1901],
             ['subjectID' => 48450, 'subjectName' => 'Real-time Operating Systems', 'semester' => 1901],
-            ['subjectID' => 41092, 'subjectName' => 'Netowrk FUndamentals', 'semester' => 1901],
+            ['subjectID' => 41092, 'subjectName' => 'Network Fundamentals', 'semester' => 1901],
             ['subjectID' => 41081, 'subjectName' => 'Sensing, Acutation and Control', 'semester' => 1901],
     		['subjectID' => 48250, 'subjectName' => 'Engineering Economics and Finance', 'semester' => 1901],
     		['subjectID' => 41087, 'subjectName' => 'Applications Studio B', 'semester' => 1901],
