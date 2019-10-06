@@ -22,6 +22,7 @@ class PlanUpdateController extends Controller
 	public function showPlan() {
 		$plan = Plan::where('userID','=',Auth::user()->id)->get();
 		$subjects = Courserequirement::where('courseID','=',$plan[0]->courseID)->get();
+		$subjects = Subjects::whereIn('subjectID',$subjects->pluck('subjectID'))->groupBy('subjectID')->get();
 	return view('planning', ['details' => $plan, 'subjects' => $subjects]);
 	}
 
