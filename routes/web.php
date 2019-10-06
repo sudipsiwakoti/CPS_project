@@ -46,52 +46,8 @@ Route::any('/searchCourses',function(){
         return view('courses')->withDetails($user)->withQuery ( $q );
     else return view ('courses')->withMessage('No Details found. Try to search again !');
 });
-/************************************ ROUTES FOR SUBJECT PAGES ************************************************/
-Route::get('/41091', function() {
-	return view('subjectviews.data_systems');
-});
+/************************************ ROUTE FOR SUBJECT PAGES ************************************************/
+Route::get('{subjectID}', 'DynamicViewController@showSubject');
 
-Route::get('/48250', function() {
-	return view('subjectviews.eng_eco_fin');
-});
-
-Route::get('/41087', function() {
-	return view('subjectviews.app_studiob');
-});
-
-Route::get('/31075', function() {
-	return view('subjectviews.ord');
-});
-
-Route::get('/48230', function() {
-	return view('subjectviews.eng_com');
-});
-
-Route::get('/33130', function() {
-	return view('subjectviews.math_mod1');
-});
-
-/************************************ ROUTES FOR COURSE PAGES ************************************************/
-Route::get('/C09067', function() {
-	return view('courseviews.eng_hon');
-});
-
-Route::get('/C10209', function() {
-	return view('courseviews.arts_edu');
-});
-
-Route::get('/C09049', function() {
-	return view('courseviews.health_science');
-});
-
-Route::get('/C09119', function() {
-	return view('courseviews.comp_sci');
-});
-
-Route::get('/C10278', function() {
-	return view('courseviews.info_systems');
-});
-
-Route::get('/C10348', function() {
-	return view('courseviews.eco');
-});
+/************************************ ROUTE FOR COURSE PAGES ************************************************/
+Route::get('{subjectID}', 'DynamicViewController@showCourse');
