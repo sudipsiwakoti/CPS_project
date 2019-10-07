@@ -35,7 +35,7 @@ Route::any('/searchSubjects',function(){
     $user = $user->unique('subjectID');
     if(count($user) > 0)
         return view('subjects')->withDetails($user)->withQuery ( $q );
-    else return view ('subjects')->withMessage('No Details found. Try to search again !');
+    else return view ('subjects')->withMessage('No details found. Try to search again !');
 });
 
 Route::get('/courses', function() {
@@ -48,7 +48,7 @@ Route::any('/searchCourses',function(){
     $user = $user->unique('courseID');
     if(count($user) > 0)
       	return view('courses')->withDetails($user)->withQuery ( $q );
-    else return view ('courses')->withMessage('No Details found. Try to search again !');
+    else return view ('courses')->withMessage('No details found. Try to search again !');
 });
 
 /************************************ ROUTE FOR SUBJECT PAGES ************************************************/

@@ -11,6 +11,7 @@ use App\Subjects;
 use App\Courses;
 use App\Courserequirement;
 use App\Subjectenrolment;
+use App\prerequisite;
 
 class PlanUpdateController extends Controller
 {

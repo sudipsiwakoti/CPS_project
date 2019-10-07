@@ -1,6 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<td>{{$details->subjectID}}</td>
+
+<div class ="container">
+	<div class="row">
+		<div class="card">
+			<div class="card-header">{{$details->subjectID}} {{$details->subjectName}}</div>
+			<div class="card-body">
+				<p> 6 credit points; </p>
+				<p><b> Requisite(s): {{$details->subjectPreReq}} </b></p>
+				<p><b> Anti-requisite(s): {{$details->subjectAntiReq}} </b></p>
+				<b> Description </b>
+				<p></p>
+				<p>{{$details->subjectDesc}}</p>
+			</div>
+		</div>
+	</div>
+		
+</div>
 
 @endsection

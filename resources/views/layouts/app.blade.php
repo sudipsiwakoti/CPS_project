@@ -34,9 +34,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        @guest
+                        @else
                         <a class="nav-link" href="{{ url('/subjects') }}">Subjects</a>
                         <a class="nav-link" href="{{ url('/courses') }}">Courses</a>
                         <a class="nav-link" href="{{ url('/planning') }}">Planning</a>
+                        @endguest
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
