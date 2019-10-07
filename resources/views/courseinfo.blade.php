@@ -7,7 +7,9 @@
 		<div class="card">
 			<div class="card-header">{{$details->courseID}} {{$details->courseName}}</div>
 			<div class="card-body">
-				{{$details->courseDesc}}
+				<b> Overview </b>
+				<p></p>
+				<p>{{$details->courseDesc}}</p>
 			</div>
 		</div>
 	</div>

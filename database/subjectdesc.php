@@ -48,16 +48,7 @@ This subject provides students with a modern introduction to the dynamic field o
 
 By developing problem-solving and design skills in this subject, students also acquire the ability to select the most appropriate network services, and design and develop network applications, e.g. web server and client, to achieve the best data performance.";
 
-$sacDesc = "This subject introduces students to programming hardware devices to collect data, make control decisions and cause actions in the physical world. This subject develops students' theoretical and practical understanding of:
-
-sensing and actuation
-sensor and actuator selection
-evaluation of control hardware and software
-modelling
-interfacing
-signal measurement and data processing
-imaging, image processing and visualisation.
-The subject incorporates online and virtual learning environments. Students bring their own devices to implement practical systems that they can use at home or work.";
+$sacDesc = "This subject introduces students to programming hardware devices to collect data, make control decisions and cause actions in the physical world. This subject develops students' theoretical and practical understanding of sensing and actuation, sensor and actuator selection, evaluation of control hardware and software, modelling, interfacing, signal measurement and data processing and image processing and visualisation. The subject incorporates online and virtual learning environments. Students bring their own devices to implement practical systems that they can use at home or work.";
 
 $eefDesc = 'In this subject students develop the ability to cost, manage and value complex engineering projects through engagement with the commercial side of projects and businesses. In the UTS model of global practice-oriented learning, students learn and apply the economic and financial techniques of engineering economy, such as cash flow, valuation and costing, and develop confidence in the language of finance and general management in the engineering domain by analysing financial reports to propose new financial and operating strategies.';
 
