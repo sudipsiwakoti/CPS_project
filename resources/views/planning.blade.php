@@ -29,7 +29,9 @@
                         <td>{{$semester->semester}}</td>                        
                         @foreach($currentEnrolments as $enrolment)
                         @if($enrolment->semester == $semester->semester)
-                        <td>{{$enrolment->subjectID}}<br>{{$enrolment->subjectName}}<br>{{$enrolment->status}}<br>
+                        <td>
+                            <a class="mycursor", onclick="window.location='subject/{{$enrolment->subjectID}}';">{{$enrolment->subjectID}}<br>{{$enrolment->subjectName}}</a>
+                            <br>{{$enrolment->status}}<br>
                             <input type="button" formmethod="post" value="[X]" onclick="window.location='{{ route("pRemove",array($enrolment->subjectEnrolmentID)) }}'">
                         </td>
                         @endif
