@@ -10671,6 +10671,7 @@ a.text-dark:focus {
   background-color: #b0d4f1;
 }
 
-.mycursor {
+.mycursor:hover {
   cursor: pointer;
+  text-decoration: underline;
 }
