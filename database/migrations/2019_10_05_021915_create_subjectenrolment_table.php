@@ -20,7 +20,7 @@ class CreateSubjectenrolmentTable extends Migration
             $table->integer('subjectID');
             $table->integer('semester');
             $table->integer('status');
-            $table->integer('grade');
+            $table->integer('grade')->nullable();
             $table->timestamps();
         });
     }

@@ -58,6 +58,6 @@ Route::get('subject/{subjectID}', 'DynamicViewController@showSubject');
 Route::get('course/{courseID}', 'DynamicViewController@showCourse');
 
 /************************************ ROUTE FOR PLANNING ****************************************************/
-Route::get('/planning', 'PlanUpdateController@showPlan');
-Route::post('/planning/{subject}/{semester}', 'PlanUpdateController@addSubject');
+Route::get('/planning', 'PlanUpdateController@showPlan')->name('planning');
+Route::get('/planning/{planID}/{subjectID}/{semester}', 'PlanUpdateController@addSubject')->name('pAdd');
 
