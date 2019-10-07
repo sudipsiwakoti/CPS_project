@@ -64,8 +64,8 @@
                     @endif
                     @foreach($subjects as $subject)
                     <tr class="table-tr">
-                        <td>{{$subject->subjectID}}</td>
-                        <td>{{$subject->subjectName}}</td>
+                        <td class="mycursor", onclick="window.location='subject/{{$subject->subjectID}}';">{{$subject->subjectID}}</td>
+                        <td class="mycursor", onclick="window.location='subject/{{$subject->subjectID}}';">{{$subject->subjectName}}</td>
                         @foreach($subjectOfferings as $subjectOffering)
                         @if ($subjectOffering->subjectID == $subject->subjectID)
                         <td><input type="button" formmethod="post" value={{$subjectOffering->semester}} onclick="window.location='{{ route("pAdd",array($details[0]->planID,$subjectOffering->subjectID,$subjectOffering->semester)) }}'"></td>

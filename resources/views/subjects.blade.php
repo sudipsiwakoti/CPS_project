@@ -27,7 +27,7 @@
         </thead>
         <tbody>
             @foreach($details as $user)
-            <tr class="table-tr" onclick="window.location='subject/{{$user->subjectID}}';">
+            <tr class="table-tr mycursor" onclick="window.location='subject/{{$user->subjectID}}';">
                 <td>{{$user->subjectID}}</td>
                 <td>{{$user->subjectName}}</td>
             </tr>

@@ -28,7 +28,7 @@
         </thead>
         <tbody>
             @foreach($details as $user)
-            <tr class="table-tr" onclick="window.location='{{ route("pCreate",array($user->courseID)) }}'">
+            <tr class="table-tr mycursor" onclick="window.location='{{ route("pCreate",array($user->courseID)) }}'">
                 <td>{{$user->courseID}}</td>
                 <td>{{$user->courseName}}</td>
             </tr>

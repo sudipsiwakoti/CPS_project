@@ -10670,3 +10670,7 @@ a.text-dark:focus {
 .table-tr:hover {
   background-color: #b0d4f1;
 }
+
+.mycursor {
+  cursor: pointer;
+}
