@@ -36,7 +36,7 @@
                     <ul class="navbar-nav mr-auto">
                         <a class="nav-link" href="{{ url('/subjects') }}">Subjects</a>
                         <a class="nav-link" href="{{ url('/courses') }}">Courses</a>
-
+                        <a class="nav-link" href="{{ url('/planning') }}">Planning</a>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
