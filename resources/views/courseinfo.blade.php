@@ -10,6 +10,9 @@
 				<b> Overview </b>
 				<p></p>
 				<p>{{$details->courseDesc}}</p>
+				<p></p>
+				<p> <b> Course Structure </b></p>
+				@include('coursestruc')
 			</div>
 		</div>
 	</div>
