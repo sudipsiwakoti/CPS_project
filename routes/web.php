@@ -60,4 +60,13 @@ Route::get('course/{courseID}', 'DynamicViewController@showCourse');
 /************************************ ROUTE FOR PLANNING ****************************************************/
 Route::get('/planning', 'PlanUpdateController@showPlan')->name('planning');
 Route::get('/planning/{planID}/{subjectID}/{semester}', 'PlanUpdateController@addSubject')->name('pAdd');
-
+Route::get('/planning/remove/{enrolment}', 'PlanUpdateController@removeSubject')->name('pRemove');
+Route::get('/planning/create/{courseID}', 'PlanUpdateController@createPlan')->name('pCreate');
+Route::any('/planning/create',function(){
+    	$q = Request::get ( 'q' );
+    	$user = Courses::where('courseID','LIKE','%'.$q.'%')->orWhere('courseName','LIKE','%'.$q.'%')->get();
+    	$user = $user->unique('courseID');
+    	if(count($user) > 0)
+      		return view('createPlan')->withDetails($user)->withQuery ( $q );
+    	else return view ('createPlan')->withMessage('No Details found. Try to search again !');
+    });

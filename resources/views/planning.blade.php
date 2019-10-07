@@ -25,11 +25,18 @@
                     </thead>
                     <tbody>
                         <tr>
-                        <td>S1 2019</td>
+                        @foreach($semesters as $semester)
+                        <td>{{$semester->semester}}</td>                        
                         @foreach($currentEnrolments as $enrolment)
-                        <td>{{$enrolment->subjectID}}<br>{{$enrolment->subjectName}}<br>{{$enrolment->status}}</td>
+                        @if($enrolment->semester == $semester->semester)
+                        <td>{{$enrolment->subjectID}}<br>{{$enrolment->subjectName}}<br>{{$enrolment->status}}<br>
+                            <input type="button" formmethod="post" value="[X]" onclick="window.location='{{ route("pRemove",array($enrolment->subjectEnrolmentID)) }}'">
+                        </td>
+                        @endif
                         @endforeach
-                        </tr>
+                        </tr>                        
+                        @endforeach
+
                     </tbody>
                 </table>
 

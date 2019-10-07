@@ -17,8 +17,6 @@ class CreateSubjectsTable extends Migration
             $table->integer('subjectID');
             $table->string('subjectName');  
             $table->string('subjectDesc')->nullable();
-            $table->integer('subjectPreReq')->nullable();
-            $table->integer('subjectAntiReq')->nullable();
             $table->integer('semester')->nullable();
             $table->boolean('active')->nullable();
             $table->boolean('school')->nullable();

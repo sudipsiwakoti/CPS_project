@@ -20,10 +20,6 @@ class CreatePlanTable extends Migration
             $table->timestamps();
         });
 
-        DB::table('plan')->insert(
-            array(
-            'courseID' => 'C09067',
-            'userID' => 1));
     
     }
 
