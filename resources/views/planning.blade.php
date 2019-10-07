@@ -27,7 +27,7 @@
                         <tr>
                         <td>S1 2019</td>
                         @foreach($currentEnrolments as $enrolment)
-                        <td>{{$enrolment->subjectID}}</td>
+                        <td>{{$enrolment->subjectID}}<br>{{$enrolment->subjectName}}<br>{{$enrolment->status}}</td>
                         @endforeach
                         </tr>
                     </tbody>
