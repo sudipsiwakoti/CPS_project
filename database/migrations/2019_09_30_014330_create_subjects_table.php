@@ -18,6 +18,7 @@ class CreateSubjectsTable extends Migration
             $table->string('subjectName');  
             $table->string('subjectDesc')->nullable();
             $table->integer('semester')->nullable();
+            $table->integer('creditPoints');
             $table->boolean('active')->nullable();
             $table->boolean('school')->nullable();
             $table->boolean('coordinator')->nullable();
