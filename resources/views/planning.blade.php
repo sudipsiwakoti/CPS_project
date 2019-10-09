@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Course Plan for course {{$details[0]->courseID}}</div>
 
@@ -14,13 +14,16 @@
                         </div>
                     @endif
                     <table class="table">
+                    <col width="10%">
+                    <col width="70%">
+                    <col width="10%">
+                    <col width="10%">
                     <thead class="thead-dark">
                         <tr>
                             <th>Semester</th>
-                            <th>Subjects</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
+                            <th colspan="5">Subjects</th>
+                            <th>Sem Total Credit Points</th>
+                            <th>Cumulative Credit Points</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,7 +57,8 @@
                 <tr>
                     <th>Subject ID</th>
                     <th>Subject Name</th>
-                    <th>Offerings</th>
+                    <th>Credit Pts</th>
+                    <th colspan="7">Offerings</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -68,6 +72,7 @@
                     <tr class="table-tr">
                         <td class="mycursor", onclick="window.location='subject/{{$subject->subjectID}}';">{{$subject->subjectID}}</td>
                         <td class="mycursor", onclick="window.location='subject/{{$subject->subjectID}}';">{{$subject->subjectName}}</td>
+                        <td class="mycursor", onclick="window.location='subject/{{$subject->subjectID}}';">{{$subject->creditPoints}}</td>
                         @foreach($subjectOfferings as $subjectOffering)
                         @if ($subjectOffering->subjectID == $subject->subjectID)
                         <td><input type="button" formmethod="post" value={{$subjectOffering->semester}} onclick="window.location='{{ route("pAdd",array($details[0]->planID,$subjectOffering->subjectID,$subjectOffering->semester)) }}'"></td>
