@@ -9,7 +9,7 @@
 			<div class="card-body">
 				<p> {{$details->creditPoints}} credit points; </p>
 				<p> Subject level: Undergraduate </p>
-				<p><b> Requisite(s):  </b></p>
+				<p><b> Requisite(s): </b> </p>
 				<p><b> Anti-requisite(s):  </b></p>
 				<b> Description </b>
 				<p></p>
