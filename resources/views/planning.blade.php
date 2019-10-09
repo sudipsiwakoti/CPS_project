@@ -80,6 +80,7 @@
                         <td class="mycursor", onclick="window.location='subject/{{$subject->subjectID}}';">{{$subject->subjectName}}</td>
                         <td class="mycursor", onclick="window.location='subject/{{$subject->subjectID}}';">{{$subject->creditPoints}}</td>
                         @foreach($subjectOfferings as $subjectOffering)
+                        @php $sem = 0 @endphp                        
                         @if ($subjectOffering->subjectID == $subject->subjectID)
                         @foreach ($semCPs as $semCP)
                         @if (($subjectOffering->semester == $semCP->sem) & !$semCP->enrollable)
@@ -90,7 +91,9 @@
                         <td><input type="button" formmethod="post" value={{$subjectOffering->semester}} onclick="window.location='{{ route("pAdd",array($details[0]->planID,$subjectOffering->subjectID,$subjectOffering->semester)) }}'"></td>
                         @endif
                         @endforeach
+                        @if ($subjectOffering->semester != $sem)
                         <td><input type="button" formmethod="post" value={{$subjectOffering->semester}} onclick="window.location='{{ route("pAdd",array($details[0]->planID,$subjectOffering->subjectID,$subjectOffering->semester)) }}'"></td>
+                        @endif
 
                         @endif
                         @endforeach
