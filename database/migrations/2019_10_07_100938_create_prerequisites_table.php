@@ -19,12 +19,12 @@ class CreatePrerequisitesTable extends Migration
             $table->timestamps();
         });
 
-        DB::table('prerequisites')->insert(
+        DB::table('prerequisites')->insert([
             ['subjectID' => 41091, 'prerequisiteID' => 41087],
             ['subjectID' => 48250, 'prerequisiteID' => 48230],
             ['subjectID' => 48434, 'prerequisiteID' => 48430],
             ['subjectID' => 48450, 'prerequisiteID' => 48434],
-            ['subjectID' => 48450, 'prerequisiteID' => 41090]
+            ['subjectID' => 48450, 'prerequisiteID' => 41090]]
         );
     }
 

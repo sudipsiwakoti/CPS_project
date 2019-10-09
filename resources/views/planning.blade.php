@@ -28,10 +28,14 @@
                     </thead>
                     <tbody>
                         <tr>
+                        @php $TCP = 0 @endphp
                         @foreach($semesters as $semester)
-                        <td>{{$semester->semester}}</td>                        
+                        <td>{{$semester->semester}}</td>  
+                        @php $CP=0; @endphp                      
                         @foreach($currentEnrolments as $enrolment)
                         @if($enrolment->semester == $semester->semester)
+                        @php $TCP = $TCP + $enrolment->creditPoints @endphp
+                        @php $CP = $CP + $enrolment->creditPoints @endphp
                         <td>
                             <a class="mycursor", onclick="window.location='subject/{{$enrolment->subjectID}}';">{{$enrolment->subjectID}}<br>{{$enrolment->subjectName}}</a>
                             <br>{{$enrolment->status}}<br>
@@ -39,6 +43,8 @@
                         </td>
                         @endif
                         @endforeach
+                        <td>@php echo $CP @endphp</td>
+                        <td>@php echo $TCP @endphp</td>
                         </tr>                        
                         @endforeach
 
@@ -75,7 +81,19 @@
                         <td class="mycursor", onclick="window.location='subject/{{$subject->subjectID}}';">{{$subject->creditPoints}}</td>
                         @foreach($subjectOfferings as $subjectOffering)
                         @if ($subjectOffering->subjectID == $subject->subjectID)
+                        @foreach ($semCPs as $semCP)
+                        @if (($subjectOffering->semester == $semCP->sem) & !$semCP->enrollable)
+                        @php $sem = $semCP->sem @endphp
+                        <td><input type="button" formmethod="post" disabled="true" value={{$subjectOffering->semester}}></td>
+                        @elseif (($subjectOffering->semester == $semCP->sem) & $semCP->enrollable)
+                        @php $sem = $semCP->sem @endphp
                         <td><input type="button" formmethod="post" value={{$subjectOffering->semester}} onclick="window.location='{{ route("pAdd",array($details[0]->planID,$subjectOffering->subjectID,$subjectOffering->semester)) }}'"></td>
+                        @endif
+                        @endforeach
+                        @if ($subjectOffering->semester != $sem)
+                        <td><input type="button" formmethod="post" value={{$subjectOffering->semester}} onclick="window.location='{{ route("pAdd",array($details[0]->planID,$subjectOffering->subjectID,$subjectOffering->semester)) }}'"></td>
+                        @endif
+
                         @endif
                         @endforeach
                     </tr>
