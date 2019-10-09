@@ -31,7 +31,6 @@ class ResultsManagerController extends Controller
         public function postResults(Request $request){
         $inputs = $request->all();
         array_shift($inputs);
-        dd($inputs);
         foreach ($inputs as $key => $value){
         	Subjectenrolment::where('subjectEnrolmentID',$key)->update(['grade' =>intval($value)]);
         }
