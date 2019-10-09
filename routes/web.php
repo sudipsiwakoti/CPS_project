@@ -15,6 +15,7 @@ use App\Plan;
 use App\Subjects;
 use App\Courses;
 use App\Courserequirement;
+use App\Prerequisites;
 
 Route::get('/', function () {
     return view('welcome');

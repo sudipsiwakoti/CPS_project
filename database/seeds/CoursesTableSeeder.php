@@ -20,5 +20,6 @@ class CoursesTableSeeder extends Seeder
     		['courseID' => 'C10278', 'courseName' => 'Bachelor of Information Systems, Bachelor of Business', 'courseDesc' => $infoSystemsDesc],
     		['courseID' => 'C10348', 'courseName' => 'Bachelor of Economics', 'courseDesc' => $ecoDesc]
 		]);
+       
     }
 }
