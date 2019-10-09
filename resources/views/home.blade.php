@@ -17,9 +17,10 @@
                     <p> This web application provides users with the capability to develop a timetable for their subjects for
                     preparation and the reduction of stress in their university career. </p>
                     <p> The <a href="{{ url('/planning') }}">Planning </a> page will showcase the app's main feature
-                        of being able to structure a course plan based on your preferences </p>
-                    <p> The <a href="{{ url('/subjects') }}">Subjects</a> page will allow you to search for subjects </p>
-                    <p> The <a href="{{ url('/courses') }}">Courses</a> page will allow you to search for courses </p>
+                        of being able to structure a course plan based on your preferences. </p>
+                    <p> The <a href="{{ url('/subjects') }}">Subjects</a> page will allow you to search for subjects. </p>
+                    <p> The <a href="{{ url('/courses') }}">Courses</a> page will allow you to search for courses. </p>
+                    <p> The <a href="{{ url('/results') }}">Results</a> page will allow you to add or modify your results to get an overview of your performance. </p>
 
                 </div>
             </div>
