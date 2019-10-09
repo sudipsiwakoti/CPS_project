@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 <div class="container">
 	<form action="/searchSubjects" method="POST" role="search">
     @csrf
@@ -9,7 +11,7 @@
         <input type="text" class="form-control" name="q"
             placeholder="Search subjects"> <span class="input-group-btn">
             <button type="submit" class="btn btn-default">
-                <span class="glyphicon glyphicon-search"></span>
+                <span class="fa fa-search"></span>
             </button>
         </span>
     </div>
