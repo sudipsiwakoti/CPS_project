@@ -35,7 +35,7 @@ class PlanUpdateController extends Controller
 		foreach ($grouped as $group){
 			$group->sem = ($grouped->keys())[$i];
 			$i = $i + 1;
-			if($group->sum() > 27)
+			if($group->sum() > 21)
 				$group->enrollable = 0;
 			else
 				$group->enrollable = 1;

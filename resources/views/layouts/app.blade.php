@@ -39,6 +39,7 @@
                         <a class="nav-link" href="{{ url('/subjects') }}">Subjects</a>
                         <a class="nav-link" href="{{ url('/courses') }}">Courses</a>
                         <a class="nav-link" href="{{ url('/planning') }}">Planning</a>
+                        <a class="nav-link" href="{{ url('/results') }}">Results</a>
                         @endguest
 
                     </ul>

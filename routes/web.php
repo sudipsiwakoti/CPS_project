@@ -71,3 +71,8 @@ Route::any('/planning/create',function(){
       		return view('createPlan')->withDetails($user)->withQuery ( $q );
     	else return view ('createPlan')->withMessage('No Details found. Try to search again !');
     });
+
+/************************************ ROUTE FOR RESULTS ****************************************************/
+Route::get('/results', 'ResultsManagerController@showResults')->name('sResults');
+Route::get('/results/edit', 'ResultsManagerController@editResults')->name('eResults');
+Route::post('/results/post', 'ResultsManagerController@postResults')->name('pResults');

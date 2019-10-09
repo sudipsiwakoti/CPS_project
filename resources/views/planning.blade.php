@@ -90,9 +90,7 @@
                         <td><input type="button" formmethod="post" value={{$subjectOffering->semester}} onclick="window.location='{{ route("pAdd",array($details[0]->planID,$subjectOffering->subjectID,$subjectOffering->semester)) }}'"></td>
                         @endif
                         @endforeach
-                        @if ($subjectOffering->semester != $sem)
                         <td><input type="button" formmethod="post" value={{$subjectOffering->semester}} onclick="window.location='{{ route("pAdd",array($details[0]->planID,$subjectOffering->subjectID,$subjectOffering->semester)) }}'"></td>
-                        @endif
 
                         @endif
                         @endforeach
