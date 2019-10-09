@@ -10673,5 +10673,5 @@ a.text-dark:focus {
 
 .mycursor:hover {
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
