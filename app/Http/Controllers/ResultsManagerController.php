@@ -19,7 +19,7 @@ class ResultsManagerController extends Controller
     	return view('results',['planID' => $plan, 'subjects' => $myEnrolments, 'semesters' => $semesters]);
     }
 
-        public function editResults(){
+    public function editResults(){
         	$plan = Plan::where('userID','=',Auth::user()->id)->get();
 		$myEnrolments = DB::table('Subjectenrolment')
 		->join('subjects','subjectEnrolment.subjectID','=','subjects.subjectID')
@@ -28,8 +28,15 @@ class ResultsManagerController extends Controller
     	return view('editResults',['planID' => $plan, 'subjects' => $myEnrolments, 'semesters' => $semesters]);
     }
 
-      	public function postResults(){
-      		Request::get();
-      	return view('results');
-      }
+        public function postResults(Request $request){
+        $inputs = $request->all();
+        array_shift($inputs);
+        dd($inputs);
+        foreach ($inputs as $key => $value){
+        	Subjectenrolment::where('subjectEnrolmentID',$key)->update(['grade' =>intval($value)]);
+        }
+        
+        return redirect()->route('sResults');
+    }
+
 }

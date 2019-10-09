@@ -4,11 +4,10 @@
 
 
 <div class="container">
-    <form action={{ route("eResults")}} method="POST" role="search">  
+    <form action='/results/post' method="POST" role="search">  
 @csrf 
-<button type="submit" class="btn btn-default">
-    <span class="glyphicon glyphicon-save">Save</span>
-</button>
+<div clas="input-group">
+
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -28,8 +27,7 @@
                 <td>{{$subject->subjectName}}</td>
                 <td>{{$subject->creditPoints}}</td>
 
-                <td><input type="text" class="form-control" name={{$subject->subjectEnrolmentID}}
-                placeholder={{$subject->grade}}></td>
+                <td><input type="hidden" class="form-control" value={{$subject->subjectEnrolmentID}}> <input type="text" class="form-control" name={{$subject->subjectEnrolmentID}} placeholder={{$subject->grade}}></td>
 
             </tr>
             @endif
@@ -38,6 +36,10 @@
             @endforeach
         </tbody>
     </table>
+        <span class="input-group-button"><button type="submit" class="btn btn-default">
+Save</button></span>
+</button>
+</div>
 </form>
 </div>
 
