@@ -4,7 +4,7 @@
 
 
 <div class="container">
-    <form action='/results/post' method="POST" role="search">  
+    <form action='/results/post' method="POST" role="form">  
 @csrf 
 <div clas="input-group">
 
@@ -27,7 +27,7 @@
                 <td>{{$subject->subjectName}}</td>
                 <td>{{$subject->creditPoints}}</td>
 
-                <td><input type="hidden" class="form-control" value={{$subject->subjectEnrolmentID}}> <input type="text" class="form-control" name={{$subject->subjectEnrolmentID}} placeholder={{$subject->grade}}></td>
+                <td><input type="text" class="form-control" name={{$subject->subjectEnrolmentID}} placeholder={{$subject->grade}}></td>
 
             </tr>
             @endif
