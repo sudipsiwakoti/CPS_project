@@ -24,11 +24,13 @@ class PlanUpdateController extends Controller
 			return view('createPlan');
 		$subjects = Courserequirement::where('courseID','=',$plan[0]->courseID)->get();
 		$subjectsBySem = Subjects::whereIn('subjectID',$subjects->pluck('subjectID'))->get();
+		
 		$myEnrolments = DB::table('Subjectenrolment')
 		->join('subjects','subjectEnrolment.subjectID','=','subjects.subjectID')
 		->whereIn('planID',$plan->pluck('planID'))->select('Subjectenrolment.*','subjects.subjectName','subjects.creditPoints')->distinct()->get();
 
 		$grouped = $myEnrolments->mapToGroups(function ($item, $key) {
+    	
     	return [$item->semester => $item->creditPoints];
 		});
 		$i = 0;
@@ -41,7 +43,11 @@ class PlanUpdateController extends Controller
 				$group->enrollable = 1;
 		}
 		$semesters = Subjectenrolment::wherein('planId',$plan->pluck('planID'))->groupBy('semester')->get();
-		$subjectsUnique = Subjects::whereIn('subjectID',$subjects->pluck('subjectID'))->whereNotIn('subjectID',$myEnrolments->pluck('subjectID'))->groupBy('subjectID')->get();
+
+		$completedSubjects = $myEnrolments->where('status','!=','Failed');
+
+		$subjectsUnique = Subjects::whereIn('subjectID',$subjects->pluck('subjectID'))->whereNotIn('subjectID',$completedSubjects->pluck('subjectID'))->groupBy('subjectID')->get();
+
 		return view('planning', ['details' => $plan, 'currentEnrolments' => $myEnrolments,'subjects' => $subjectsUnique, 'subjectOfferings' => $subjectsBySem, 'semesters' => $semesters, 'semCPs' => $grouped]);
 	}
 

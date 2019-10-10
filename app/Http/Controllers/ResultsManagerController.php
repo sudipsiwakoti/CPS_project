@@ -33,16 +33,18 @@ class ResultsManagerController extends Controller
 	    // rewinds array's internal pointer to the first element
 		// and returns the value of the first array element. 
 		$value = reset( $inputs );
-
 		// returns the index element of the current array position
 		$key   = key( $inputs );
-
 		unset( $inputs[ $key ]);
-
         foreach ($inputs as $key => $value){
         	Subjectenrolment::where('subjectEnrolmentID',$key)->update(['grade' =>intval($value)]);
-        }
-        
+        	if (intval($value) >= 50) {
+        		Subjectenrolment::where('subjectEnrolmentID',$key)->update(['status' => 'Passed']);
+        	}
+        	else {
+        		Subjectenrolment::where('subjectEnrolmentID',$key)->update(['status' => 'Failed']);
+        	}
+        }      
         return redirect()->route('sResults');
     }
 
