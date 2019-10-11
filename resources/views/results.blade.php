@@ -34,7 +34,7 @@
                 <td class=""></td>
                 <td></td>
             <td>GPA</td>
-            <td>Placeholder</td>
+            <td>{{$GPA}}</td>
             </tr>
         </tfoot>
         </tbody>
