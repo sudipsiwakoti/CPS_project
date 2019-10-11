@@ -19,6 +19,7 @@ class PlanUpdateController extends Controller
 
 
 	public function showPlan() {
+		if (Auth::check()) {
 		$plan = Plan::where('userID','=',Auth::user()->id)->get();
 		if (count($plan) == 0)
 			return view('createPlan');
@@ -49,6 +50,9 @@ class PlanUpdateController extends Controller
 		$subjectsUnique = Subjects::whereIn('subjectID',$subjects->pluck('subjectID'))->whereNotIn('subjectID',$completedSubjects->pluck('subjectID'))->groupBy('subjectID')->get();
 
 		return view('planning', ['details' => $plan, 'currentEnrolments' => $myEnrolments,'subjects' => $subjectsUnique, 'subjectOfferings' => $subjectsBySem, 'semesters' => $semesters, 'semCPs' => $grouped]);
+		}
+		else
+			return redirect()->route('register');
 	}
 
 	public function addSubject($plan, $subject, $semester) {

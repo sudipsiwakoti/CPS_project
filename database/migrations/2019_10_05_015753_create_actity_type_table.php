@@ -18,6 +18,12 @@ class CreateActityTypeTable extends Migration
             $table->string('activityDesc');
             $table->timestamps();
         });
+    
+
+        DB::table('activity_type')->insert([
+            ['activityDesc' => 'Lecture'],['activityDesc' => 'Tutorial'],['activityDesc' => 'Seminar'],['activityDesc' => 'Workshop'],['activityDesc' => 'Studio'],
+            
+        ]);
     }
 
     /**

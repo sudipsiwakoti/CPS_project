@@ -21,7 +21,7 @@ class CreateSubjectsTable extends Migration
             $table->integer('creditPoints');
             $table->boolean('active')->nullable();
             $table->boolean('school')->nullable();
-            $table->boolean('coordinator')->nullable();
+            $table->integer('coordinator')->nullable();
             $table->timestamps();
         });
     }

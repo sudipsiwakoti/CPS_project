@@ -29,6 +29,14 @@
             @endforeach
 
             @endforeach
+            <tfoot>
+            <tr>
+                <td class=""></td>
+                <td></td>
+            <td>GPA</td>
+            <td>Placeholder</td>
+            </tr>
+        </tfoot>
         </tbody>
     </table>
 </div>
