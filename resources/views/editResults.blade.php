@@ -27,7 +27,7 @@
                 <td>{{$subject->subjectName}}</td>
                 <td>{{$subject->creditPoints}}</td>
 
-                <td><input type="text" class="form-control" name={{$subject->subjectEnrolmentID}} value={{$subject->grade}} placeholder={{$subject->grade}}></td>
+                <td><input type="text" class="form-control"  placeholder='{{$subject->grade}}' name='{{$subject->subjectEnrolmentID}}' value='{{$subject->grade}}' ></td>
 
             </tr>
             @endif
