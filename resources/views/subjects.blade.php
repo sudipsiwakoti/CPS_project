@@ -16,17 +16,19 @@
         </span>
     </div>
 	</form>
-
-    @if(isset($details))
-        <p> </p>
-        <p> The search results for your query <b> {{ $query }} </b> are :</p>
-    <table class="table">
+        <p></p>
+        <table class="table">
         <thead class="thead-dark">
             <tr>
                 <th>Subject ID</th>
                 <th>Subject Name</th>
             </tr>
         </thead>
+
+    @if(isset($details))
+        <p> </p>
+        <p> The search results for your query <b> {{ $query }} </b> are :</p>
+
         <tbody>
             @foreach($details as $user)
             <tr class="table-tr mycursor" onclick="window.location='subject/{{$user->subjectID}}';">
@@ -36,6 +38,17 @@
             @endforeach
         </tbody>
     </table>
+    @else
+        @php
+            $tmp = DB::table('subjects')->get();
+            $tmp = $tmp->unique('subjectID');
+        @endphp
+        @foreach($tmp as $user)
+            <tr class="table-tr mycursor" onclick="window.location='subject/{{$user->subjectID}}';">
+                <td>{{$user->subjectID}}</td>
+                <td>{{$user->subjectName}}</td>
+            </tr>
+        @endforeach
     @endif
 </div>
 
