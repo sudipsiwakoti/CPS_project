@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Http\Controllers\ExportPlanController;
 use App\User;
 use App\Plan;
 use App\Subjects;
@@ -76,3 +78,8 @@ Route::any('/planning/create',function(){
 Route::get('/results', 'ResultsManagerController@showResults')->name('sResults');
 Route::get('/results/edit', 'ResultsManagerController@editResults')->name('eResults');
 Route::any('/results/post', 'ResultsManagerController@postResults')->name('pResults');
+
+
+Route::get('/dynamic_pdf', 'DynamicPDFController@index');
+
+Route::get('/dynamic_pdf/pdf', 'DynamicPDFController@pdf');

@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="col-md-10" align="right">
+        <a href="{{ url('dynamic_pdf') }}" class="btn btn-danger">Print Plan</a>
+    </div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -13,7 +16,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <table class="table">
+                    <table  class="table" >
                     <col width="10%">
                     <col width="70%">
                     <col width="10%">
@@ -30,8 +33,8 @@
                         <tr>
                         @php $TCP = 0 @endphp
                         @foreach($semesters as $semester)
-                        <td>{{$semester->semester}}</td>  
-                        @php $CP=0; @endphp                      
+                        <td>{{$semester->semester}}</td>
+                        @php $CP=0; @endphp
                         @foreach($currentEnrolments as $enrolment)
                         @if($enrolment->semester == $semester->semester)
                         @php $TCP = $TCP + $enrolment->creditPoints @endphp
@@ -45,7 +48,7 @@
                         @endforeach
                         <td>@php echo $CP @endphp</td>
                         <td>@php echo $TCP @endphp</td>
-                        </tr>                        
+                        </tr>
                         @endforeach
 
                     </tbody>
@@ -56,6 +59,7 @@
             </div>
             <div class="card">
                 <div class="card-header">Subjects to Plan for course {{$details[0]->courseID}}</div>
+
 
                 <div class="card-body">
                     <table class="table">
@@ -80,7 +84,7 @@
                         <td class="mycursor", onclick="window.location='subject/{{$subject->subjectID}}';">{{$subject->subjectName}}</td>
                         <td class="mycursor", onclick="window.location='subject/{{$subject->subjectID}}';">{{$subject->creditPoints}}</td>
                         @foreach($subjectOfferings as $subjectOffering)
-                        @php $sem = 0 @endphp                        
+                        @php $sem = 0 @endphp
                         @if ($subjectOffering->subjectID == $subject->subjectID)
                         @foreach ($semCPs as $semCP)
                         @if (($subjectOffering->semester == $semCP->sem) & !$semCP->enrollable)
