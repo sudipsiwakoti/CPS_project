@@ -1,3 +1,4 @@
+{{-- This view portrays the home page of the Course Planning System showcasing navigations and additional information about the app --}}
 @extends('layouts.app')
 
 @section('content')

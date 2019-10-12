@@ -11,7 +11,9 @@ class CoursesTableSeeder extends Seeder
      */
     public function run()
     {
+        // Includes prescribed course description
         include('database/coursedesc.php');
+        // Insert data
         DB::table('courses')->insert([
     		['courseID' => 'C09067', 'courseName' => 'Bachelor of Engineering (Honours) Diploma in Professional Engineering Practice', 'courseDesc' => $engineeringDesc],
     		['courseID' => 'C10209', 'courseName' => 'Bachelor of Arts in Educational Studies', 'courseDesc' => $artsDesc],

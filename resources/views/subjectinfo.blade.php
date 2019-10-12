@@ -1,3 +1,4 @@
+{{-- This view showcases the subject information page that dynamically presents all the subjects recorded in the database--}}
 @extends('layouts.app')
 
 @section('content')

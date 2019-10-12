@@ -1,3 +1,4 @@
+{{-- This view presents the verification page --}}
 @extends('layouts.app')
 
 @section('content')

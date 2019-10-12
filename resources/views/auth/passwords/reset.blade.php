@@ -1,3 +1,4 @@
+{{-- This view serves the purpose of resetting a password --}}
 @extends('layouts.app')
 
 @section('content')

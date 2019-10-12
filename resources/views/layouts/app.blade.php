@@ -1,3 +1,4 @@
+{{-- This view represents the toolbar of the app --}}
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>

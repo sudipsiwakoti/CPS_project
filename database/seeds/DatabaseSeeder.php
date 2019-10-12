@@ -11,6 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // Containts a list of database seeders to be called when the command
+        // $ php artisan migrate:fresh -seed 
+        // is called
         $this->call([
         	SubjectsTableSeeder::class,
         	CoursesTableSeeder::class

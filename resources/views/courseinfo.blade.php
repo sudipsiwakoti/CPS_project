@@ -1,3 +1,4 @@
+{{-- This view displays the course information page --}}
 @extends('layouts.app')
 
 @section('content')
