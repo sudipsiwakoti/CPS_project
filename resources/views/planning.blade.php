@@ -1,3 +1,4 @@
+{{-- This view shows the primary feature of the app by providing users with the planning capability of assigning subjects to semesters --}}
 @extends('layouts.app')
 
 @section('content')

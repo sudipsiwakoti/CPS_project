@@ -1,3 +1,4 @@
+{{-- This view represents the creation of a plan page --}}
 @extends('layouts.app')
 
 @section('content')

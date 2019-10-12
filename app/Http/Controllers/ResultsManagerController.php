@@ -8,6 +8,7 @@ use App\Plan;
 use DB;
 use Auth;
 
+// Manage results controller
 class ResultsManagerController extends Controller
 {
     public function showResults(){

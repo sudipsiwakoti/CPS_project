@@ -1,3 +1,4 @@
+{{-- This view portrays the edition of results by a user --}}
 @extends('layouts.app')
 
 @section('content')
