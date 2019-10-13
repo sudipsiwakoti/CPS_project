@@ -34,7 +34,7 @@ class DynamicPDFController extends Controller
     {
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($this->convert_myEnrolments_data_to_html());
-        return $pdf->stream();
+        return $pdf->download('plan.pdf');
     }
 
     function convert_myEnrolments_data_to_html()
