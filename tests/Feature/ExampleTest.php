@@ -4,7 +4,7 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-
+// For the purpose of initiating test cases
 class ExampleTest extends TestCase
 {
     /**

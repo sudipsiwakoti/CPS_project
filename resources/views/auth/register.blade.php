@@ -1,3 +1,4 @@
+{{-- This view shows the registration page consisting of items such as email, password and name--}}
 @extends('layouts.app')
 
 @section('content')

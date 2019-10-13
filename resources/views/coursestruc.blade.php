@@ -1,3 +1,4 @@
+{{-- This view will be included in courseinfo.blade.php for providing information about course structures --}}
 				@if (($details->courseID) === 'C09067')
 				<ul>
 					<li> core program: 48 credit points </li>

@@ -13,8 +13,10 @@ class SubjectsTableSeeder extends Seeder
      */
     public function run()
     {
+        // includes prescribed subject descriptions
         include('database/subjectdesc.php');
 
+        // insert data
         DB::table('subjects')->insert([
     		['subjectID' => 41091, 'subjectName' => 'Data Systems', 'subjectDesc' => $dataSystemsDesc, 'semester' => 1902, 'creditPoints' => 6, 'coordinator' => 2],
             ['subjectID' => 41091, 'subjectName' => 'Data Systems', 'subjectDesc' => $dataSystemsDesc, 'semester' => 2002, 'creditPoints' => 6, 'coordinator' => 2],    

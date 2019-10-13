@@ -1,9 +1,10 @@
 <?php
 
 namespace App;
-// test
+
 use Illuminate\Database\Eloquent\Model;
 
+// Course model for courses table
 class Courses extends Model
 {
     //

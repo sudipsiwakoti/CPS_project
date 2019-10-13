@@ -1,3 +1,4 @@
+{{-- This view portrays the login page that accepts an email and password --}}
 @extends('layouts.app')
 
 @section('content')

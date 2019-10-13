@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 class RouteServiceProvider extends ServiceProvider
 {
     /**
-     * This namespace is applied to your controller routes.
+     * This namespace is applied to controller routes.
      *
      * In addition, it is set as the URL generator's root namespace.
      *

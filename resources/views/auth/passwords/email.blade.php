@@ -1,3 +1,4 @@
+{{-- This view is in regards to email verification --}}
 @extends('layouts.app')
 
 @section('content')

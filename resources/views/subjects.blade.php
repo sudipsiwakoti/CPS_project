@@ -1,3 +1,4 @@
+{{-- This view displays the subject search page for queries --}}
 @extends('layouts.app')
 
 @section('content')

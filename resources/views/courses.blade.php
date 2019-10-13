@@ -1,3 +1,4 @@
+{{-- This view showcases the course search page for queries --}}
 @extends('layouts.app')
 
 @section('content')
