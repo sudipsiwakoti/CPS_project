@@ -83,3 +83,8 @@ Route::any('/results/post', 'ResultsManagerController@postResults')->name('pResu
 Route::get('/dynamic_pdf', 'DynamicPDFController@index');
 
 Route::get('/dynamic_pdf/pdf', 'DynamicPDFController@pdf');
+
+//Route::get('/dynamic_pdf/pdf', function()
+//{
+  //  return redirect('/dynamic_pdf')->route('planning');
+//});
