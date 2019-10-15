@@ -15,7 +15,7 @@ class DynamicPDFController extends Controller
     function index()
     {
         $plan = Plan::where('userID','=',Auth::user()->id)->get();
-        $myEnrolments = DB::table('Subjectenrolment')
+        $myEnrolments = DB::table('Subjectenrolment')->orderBy('Subjectenrolment.semester')
             ->join('subjects','subjectEnrolment.subjectID','=','subjects.subjectID')
             ->whereIn('planID',$plan->pluck('planID'))->select('Subjectenrolment.*','subjects.subjectName','subjects.creditPoints')->distinct()->get();
         return view('dynamic_pdf', ['enrolments' => $myEnrolments]);
@@ -24,9 +24,10 @@ class DynamicPDFController extends Controller
    function get_myEnrolments_data()
     {
         $plan = Plan::where('userID','=',Auth::user()->id)->get();
-        $myEnrolments_data = DB::table('Subjectenrolment')
+        $myEnrolments_data = DB::table('Subjectenrolment')->orderBy('Subjectenrolment.semester')
             ->join('subjects','subjectEnrolment.subjectID','=','subjects.subjectID')
-            ->whereIn('planID',$plan->pluck('planID'))->select('Subjectenrolment.*','subjects.subjectName','subjects.creditPoints')->distinct()->get();
+            ->whereIn('planID',$plan->pluck('planID'))->select('Subjectenrolment.*','subjects.subjectName',
+                'subjects.creditPoints')->distinct()->get();
         return $myEnrolments_data;
     }
 
@@ -35,6 +36,8 @@ class DynamicPDFController extends Controller
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($this->convert_myEnrolments_data_to_html());
         return $pdf->download('plan.pdf');
+
+
     }
 
     function convert_myEnrolments_data_to_html()
