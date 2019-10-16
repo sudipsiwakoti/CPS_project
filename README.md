@@ -18,11 +18,15 @@ https://devmarketer.io/learn/setup-laravel-project-cloned-github-com/
 # Running the application
 Once you are in the directory that stores our course planning system, run:
 
+```
 $ php artisan migrate:fresh --seed
+```
 
 Then, run the program:
 
+```
 $ php artisan serve
+```
 
 Launch your preferred web browser and head to the URL: 
 
