@@ -11,7 +11,7 @@ To initially setup Laravel, follow the steps listed in the following documentati
 
 https://laravel.com/docs/6.x
 
-It may assist to follow this guide in pulling a Laravel repository.
+It may be of assistance to follow this guide in pulling a Laravel repository.
 
 https://devmarketer.io/learn/setup-laravel-project-cloned-github-com/
 
