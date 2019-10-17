@@ -15,7 +15,7 @@
 <body>
 <br />
 <div class="container">
-    <h3 align="center">UNIVERSITY of TECHNOLOGY SYDNEY</h3><br />
+    <h3 align="center">UNIVERSITY OF TECHNOLOGY SYDNEY</h3><br />
 
     <div class="row">
         <div class="col-md-7" align="right">
