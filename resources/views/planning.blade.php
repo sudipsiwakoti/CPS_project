@@ -9,23 +9,24 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Course Plan for course {{$details[0]->courseID}}</div>
+                <div class="card-header">Course Plan for Course {{$details[0]->courseID}}</div>
 
-                <div class="card-body">
+                <div class="table-responsive-md">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-                    <table  class="table" >
-                    <col width="10%">
-                    <col width="70%">
-                    <col width="10%">
-                    <col width="10%">
-                    <thead class="thead-dark">
+                    <div class="table-responsive">
+                    <table  class="table", width="100%" >
+                    <col width="20%">
+                    <col width="40%">
+                    <col width="20%">
+                    <col width="20%">
+                    <thead class="thead-dark", align="left">
                         <tr>
                             <th>Semester</th>
-                            <th colspan="5">Subjects</th>
+                            <th>Subjects</th>
                             <th>Sem Total Credit Points</th>
                             <th>Cumulative Credit Points</th>
                         </tr>
@@ -36,17 +37,20 @@
                         @foreach($semesters as $semester)
                         <td>{{$semester->semester}}</td>
                         @php $CP=0; @endphp
+                                <td>
                         @foreach($currentEnrolments as $enrolment)
-                        @if($enrolment->semester == $semester->semester)
+
                         @php $TCP = $TCP + $enrolment->creditPoints @endphp
                         @php $CP = $CP + $enrolment->creditPoints @endphp
-                        <td>
-                            <a class="mycursor", onclick="window.location='subject/{{$enrolment->subjectID}}';">{{$enrolment->subjectID}}<br>{{$enrolment->subjectName}}</a>
+
+                            @if($enrolment->semester == $semester->semester)
+                            <a class="mycursor", onclick="window.location='subject/{{$enrolment->subjectID}}';">{{$enrolment->subjectID}} - {{$enrolment->subjectName}}</a>
                             <br>{{$enrolment->status}}<br>
-                            <input type="button" formmethod="post" value="[X]" onclick="window.location='{{ route("pRemove",array($enrolment->subjectEnrolmentID)) }}'">
+                            <input class = "btn btn-secondary" type="button" formmethod="post" value="Remove" onclick="window.location='{{ route("pRemove",array($enrolment->subjectEnrolmentID)) }}'"><br><br>
+                            @endif
+                            @endforeach
                         </td>
-                        @endif
-                        @endforeach
+
                         <td>@php echo $CP @endphp</td>
                         <td>@php echo $TCP @endphp</td>
                         </tr>
@@ -55,7 +59,7 @@
                     </tbody>
                 </table>
 
-
+                    </div>
                 </div>
             </div>
             <div class="card">
