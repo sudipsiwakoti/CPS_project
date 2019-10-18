@@ -39,11 +39,11 @@
                         @php $CP=0; @endphp
                                 <td>
                         @foreach($currentEnrolments as $enrolment)
-
+                        @if($enrolment->semester == $semester->semester)
                         @php $TCP = $TCP + $enrolment->creditPoints @endphp
                         @php $CP = $CP + $enrolment->creditPoints @endphp
 
-                            @if($enrolment->semester == $semester->semester)
+
                             <a class="mycursor", onclick="window.location='subject/{{$enrolment->subjectID}}';">{{$enrolment->subjectID}} - {{$enrolment->subjectName}}</a>
                             <br>{{$enrolment->status}}<br>
                             <input class = "btn btn-secondary" type="button" formmethod="post" value="Remove" onclick="window.location='{{ route("pRemove",array($enrolment->subjectEnrolmentID)) }}'"><br><br>
