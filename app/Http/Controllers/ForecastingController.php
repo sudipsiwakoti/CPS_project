@@ -22,6 +22,19 @@ class ForecastingController extends Controller
     }
 
     public function accessManagement() {
+    	$allSubjects = DB::table('Subjects')->leftJoin('Users','Subjects.coordinator','=','Users.id')->select('Subjects.*','Users.name')->get();
+    	return view('uam',['subjects' => $allSubjects]);
+    }
+
+    public function assignCoordinator($subject, $semester) {
+        	DB::table('Subjects')->where([['subjectID','=',$subject],['semester','=',$semester]])->update(['coordinator' => Auth::user()->id]);
+    	return redirect()->route('access');
+    }
+
+    public function removeCoordinator($subject, $semester) {
+        	DB::table('Subjects')->where([['subjectID','=',$subject],['semester','=',$semester]])->update(['coordinator' => NULL]);
+    	return redirect()->route('access');
+
 
     }
 }

@@ -91,4 +91,6 @@ Route::get('/dynamic_pdf/pdf', 'DynamicPDFController@pdf');
 
 /************************************ ROUTE FOR FORECASTING************************************************/
 Route::get('/enrolments','ForecastingController@index');
-Route::get('/enrolments/uam','ForecastingController@accessManagement');
+Route::get('/enrolments/uam','ForecastingController@accessManagement')->name("access");
+Route::get('/enrolments/uam/assign/{subject}/{semester}','ForecastingController@assignCoordinator')->name("assign");
+Route::get('/enrolments/uam/remove/{subject}/{semester}','ForecastingController@removeCoordinator')->name("removeC");

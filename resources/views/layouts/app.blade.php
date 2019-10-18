@@ -39,8 +39,12 @@
                         @else
                         <a class="nav-link" href="{{ url('/subjects') }}">Subjects</a>
                         <a class="nav-link" href="{{ url('/courses') }}">Courses</a>
+                        @if (Auth::user()->role == 0)
                         <a class="nav-link" href="{{ url('/planning') }}">Planning</a>
                         <a class="nav-link" href="{{ url('/results') }}">Results</a>
+                        @else
+                        <a class="nav-link" href="{{ url('/enrolments') }}">Enrolments</a>
+                        @endif
                         @endguest
 
                     </ul>
