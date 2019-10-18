@@ -4,9 +4,6 @@
 
 
 <div class="container">
-    <div class="col-md-10" align="right">
-        <a href="{{ route('access') }}" class="btn btn-default">Manage Subjects</a>
-    </div>
     <table class="table">
         <thead class="thead-dark">
             <p></p>
@@ -14,8 +11,8 @@
                 <th>Subject ID</th>
                 <th>Subject Name</th>
                 <th>Semester</th>
-                <th>Places Available</th>
-                <th>Students Enrolled</th>
+                <th>Person Responsible</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>        
@@ -24,8 +21,14 @@
                 <td>{{$subject->subjectID}}</td>
                 <td>{{$subject->subjectName}}</td>
                 <td>{{$subject->semester}}</td>
-                <td></td>
-                <td>{{$subject->nbEnrolments}}</td>
+                @if ($subject->name == null)
+                <td>None assigned</td>
+                <td><a href="{{ route('assign', array($subject->subjectID, $subject->semester)) }}" class="btn btn-default">Assign me</a></td>
+                @else
+                <td>{{$subject->name}}</td>
+                <td><a href="{{ route('removeC', array($subject->subjectID, $subject->semester)) }}" class="btn btn-danger">Remove Coordinator</a></td>
+                @endif
+
             </tr>
             @endforeach
         </tbody>
