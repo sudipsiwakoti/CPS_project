@@ -88,3 +88,7 @@ Route::get('/dynamic_pdf/pdf', 'DynamicPDFController@pdf');
 //{
   //  return redirect('/dynamic_pdf')->route('planning');
 //});
+
+/************************************ ROUTE FOR FORECASTING************************************************/
+Route::get('/enrolments','ForecastingController@index');
+Route::get('/enrolments/uam','ForecastingController@accessManagement');
