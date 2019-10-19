@@ -19,7 +19,8 @@ class PlanUpdateController extends Controller
     //
 
 
-	public function showPlan() {
+	public function showPlan(Request $request){
+
 		if (Auth::check()) {
 		$plan = Plan::where('userID','=',Auth::user()->id)->get();
 		if (count($plan) == 0)
@@ -49,7 +50,11 @@ class PlanUpdateController extends Controller
 		$completedSubjects = $myEnrolments->where('status','!=','Failed');
 
 		$subjectsUnique = Subjects::whereIn('subjectID',$subjects->pluck('subjectID'))->whereNotIn('subjectID',$completedSubjects->pluck('subjectID'))->groupBy('subjectID')->get();
-
+		$missingPR = $request->all();
+		if (count($missingPR) > 0)
+		{
+			return view('planning', ['details' => $plan, 'currentEnrolments' => $myEnrolments,'subjects' => $subjectsUnique, 'subjectOfferings' => $subjectsBySem, 'semesters' => $semesters, 'semCPs' => $grouped, 'warning' => $missingPR]);
+		}
 		return view('planning', ['details' => $plan, 'currentEnrolments' => $myEnrolments,'subjects' => $subjectsUnique, 'subjectOfferings' => $subjectsBySem, 'semesters' => $semesters, 'semCPs' => $grouped]);
 		}
 		else
@@ -57,6 +62,20 @@ class PlanUpdateController extends Controller
 	}
 
 	public function addSubject($plan, $subject, $semester) {
+
+		$prerequisites = DB::table('prerequisites')->where('subjectID','=',$subject)->select('prerequisiteID')->get();
+		$missedPR = [];
+		$prereqWarning = 0;
+		foreach ($prerequisites as $prerequisite)
+		{
+			if (DB::table('Subjectenrolment')->where([['subjectID','=',$prerequisite->prerequisiteID],['planID','=',$plan],['semester','<',$semester]])->count() == 0)
+			{
+				array_push($missedPR,$prerequisite->prerequisiteID);
+				$prereqWarning = 1;
+			}
+		}
+		if ($prereqWarning == 1)
+			return redirect()->route('planning', ['warning' => $missedPR]);
 		DB::table('subjectEnrolment')->insert(['planID' => $plan, 'userID' => Auth::user()->id, 'subjectID' => $subject, 'semester' => $semester, 'status' => 'Planned']);
 		return redirect()->route('planning');
 	}

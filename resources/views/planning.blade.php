@@ -5,12 +5,25 @@
     <div class="col-md-10" align="right">
         <a href="{{ url('dynamic_pdf') }}" class="btn btn-danger">Print Plan</a>
     </div>
+
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Course Plan for Course {{$details[0]->courseID}}</div>
-
+                    @if(isset($warning))
+                    <div class="alert alert-warning">
+                        <strong>Could not enrol</strong> You must meet prerequisites
+                        @foreach ($warning as $PR)
+                            @foreach ($PR as $P)
+                                {{$P}}
+                            @endforeach
+                        @endforeach
+                        to enrol.
+                    </div>
+                    @endif
                 <div class="table-responsive-md">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">

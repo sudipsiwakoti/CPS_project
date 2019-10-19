@@ -58,6 +58,7 @@ class SubjectsTableSeeder extends Seeder
             ['subjectID' => 48434, 'subjectName' => 'Embedded Software', 'subjectDesc' => $embSoftDesc, 'semester' => 1901, 'creditPoints' => 6, 'coordinator' => 0],
             ['subjectID' => 48033, 'subjectName' => 'Internet of Things', 'subjectDesc' => $iotDesc, 'semester' => 1901, 'creditPoints' => 6, 'coordinator' => 0],
             ['subjectID' => 48450, 'subjectName' => 'Real-time Operating Systems', 'subjectDesc' => $realtimeOSDesc, 'semester' => 1901, 'creditPoints' => 6, 'coordinator' => 0],
+            ['subjectID' => 48450, 'subjectName' => 'Real-time Operating Systems', 'subjectDesc' => $realtimeOSDesc, 'semester' => 1902, 'creditPoints' => 6, 'coordinator' => 0],
             ['subjectID' => 41092, 'subjectName' => 'Network Fundamentals', 'subjectDesc' => $netFunDesc, 'semester' => 1901, 'creditPoints' => 6, 'coordinator' => 0],
             ['subjectID' => 41081, 'subjectName' => 'Sensing, Acutation and Control', 'subjectDesc' => $sacDesc, 'semester' => 1901, 'creditPoints' => 6, 'coordinator' => 0],
     		['subjectID' => 48250, 'subjectName' => 'Engineering Economics and Finance', 'subjectDesc' => $eefDesc, 'semester' => 1901, 'creditPoints' => 6, 'coordinator' => 0],
